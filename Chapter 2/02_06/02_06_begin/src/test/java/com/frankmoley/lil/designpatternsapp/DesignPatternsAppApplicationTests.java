@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import junit.framework.Assert;
+import prototype.ProtoFalse;
+import prototype.ProtoTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,6 +22,25 @@ public class DesignPatternsAppApplicationTests {
 
     @Autowired
     SingB singB2;
+
+    @Autowired
+    ProtoTrue true1;
+
+    @Autowired
+    ProtoTrue true2;
+
+    @Autowired
+    ProtoFalse false1;
+
+    @Autowired
+    ProtoFalse false2;
+
+
+    @Test
+    public void testPrototypes() {
+        Assert.assertSame(false1, false2);
+        Assert.assertNotSame(true1, true2)
+    }
 
     @Test
     public void testSingletons() {
